@@ -4,31 +4,30 @@
 <meta charset="UTF-8" />
 <title>DREAfrica | Digital Real Estate Education</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="DREAfrica educates and partners with beginners and investors to profit from digital real estate through domains, mentorship, and deal flow." />
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg-main: #0e1217;
-  --bg-soft: #141a21;
+  --bg-main: #0b0e12;
+  --bg-soft: #12161c;
 
-  /* TEXT (BLENDED, NOT PAINTED) */
-  --text-main: #eef1f5;      /* near-white */
-  --text-muted: #cfd6df;     /* soft white */
-  --heading-gold: #c2a26b;   /* gold-brown accent */
+  /* DEEP LOGO GOLD (NOT BASIC) */
+  --gold-main: #9e7c3a;      /* dark rich gold */
+  --gold-soft: #c9a45c;      /* highlight gold */
+  --gold-glow: rgba(158,124,58,0.45);
 
-  /* ACCENTS */
-  --accent-gold: #c2a26b;
-  --accent-blue: #3aa6ff;
+  /* TEXT */
+  --text-main: #f2f2f2;
+  --text-muted: #cfd3da;
 
   --border-soft: rgba(255,255,255,0.08);
 }
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: 'Inter', sans-serif;
 }
 
@@ -38,6 +37,13 @@ body {
   overflow-x: hidden;
 }
 
+/* REMOVE ALL DEFAULT LINK STYLES */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* PARTICLES */
 #particles-js {
   position: fixed;
   inset: 0;
@@ -47,34 +53,34 @@ body {
 .container {
   max-width: 1200px;
   margin: auto;
-  padding: 64px 20px;
+  padding: 56px 20px;
 }
 
 /* HERO */
 .hero {
   text-align: center;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .hero img {
   width: 240px;
-  margin-bottom: 14px; /* tighter spacing */
+  margin-bottom: 10px;
   transition: transform .3s ease, filter .3s ease;
 }
 
 .hero img:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 18px var(--accent-gold));
+  transform: scale(1.06);
+  filter: drop-shadow(0 0 20px var(--gold-glow));
 }
 
 .hero h1 {
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-size: clamp(2.2rem, 5vw, 3.7rem);
   font-weight: 700;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .hero h1 span {
-  color: var(--heading-gold);
+  color: var(--gold-main);
 }
 
 .hero p {
@@ -84,9 +90,9 @@ body {
   color: var(--text-muted);
 }
 
-/* BUTTONS */
+/* BUTTONS (FIXED — NO UNDERLINES) */
 .cta-group {
-  margin-top: 34px;
+  margin-top: 32px;
   display: flex;
   justify-content: center;
   gap: 18px;
@@ -94,36 +100,44 @@ body {
 }
 
 .btn {
-  padding: 14px 34px;
+  padding: 14px 36px;
   border-radius: 6px;
   font-weight: 600;
   letter-spacing: .4px;
-  transition: all .3s ease;
   border: none;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none !important;
+  transition: all .35s ease;
 }
 
+/* PRIMARY & TELEGRAM MATCH */
 .btn-primary,
 .btn-secondary {
-  background: linear-gradient(135deg, var(--accent-gold), var(--accent-blue));
-  color: #000;
+  background: linear-gradient(
+    135deg,
+    var(--gold-main),
+    var(--gold-soft)
+  );
+  color: #0b0e12;
 }
 
 .btn-primary:hover,
 .btn-secondary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(194,162,107,0.35);
+  box-shadow: 0 14px 34px var(--gold-glow);
 }
 
 /* SECTIONS */
 section {
-  margin-top: 96px;
+  margin-top: 88px;
 }
 
 section h2 {
   font-size: 2.1rem;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   text-align: center;
-  color: var(--heading-gold);
+  color: var(--gold-main);
 }
 
 section p {
@@ -139,7 +153,7 @@ section p {
 .section-logo {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .section-logo img {
@@ -149,7 +163,7 @@ section p {
 
 .section-logo img:hover {
   transform: scale(1.06);
-  filter: drop-shadow(0 0 14px var(--accent-gold));
+  filter: drop-shadow(0 0 16px var(--gold-glow));
 }
 
 /* GRID */
@@ -157,7 +171,7 @@ section p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 28px;
-  margin-top: 52px;
+  margin-top: 48px;
 }
 
 .card {
@@ -169,13 +183,13 @@ section p {
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent-gold);
+  transform: translateY(-6px);
+  border-color: var(--gold-main);
 }
 
 .card h3 {
   margin-bottom: 10px;
-  color: var(--heading-gold);
+  color: var(--gold-soft);
 }
 
 .card p {
@@ -187,7 +201,7 @@ section p {
 /* FORM */
 form {
   max-width: 520px;
-  margin: 46px auto 0;
+  margin: 44px auto 0;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -195,7 +209,7 @@ form {
 
 input {
   padding: 14px;
-  background: #0b0f14;
+  background: #080a0e;
   border: 1px solid var(--border-soft);
   color: var(--text-main);
   border-radius: 6px;
@@ -203,28 +217,28 @@ input {
 
 input:focus {
   outline: none;
-  border-color: var(--accent-gold);
+  border-color: var(--gold-main);
 }
 
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 56px 20px;
+  padding: 52px 20px;
   font-size: .9rem;
   color: var(--text-muted);
 }
 
 footer a {
-  color: var(--heading-gold);
+  color: var(--gold-main);
   font-weight: 500;
 }
 
-/* MOBILE REFINEMENTS */
+/* MOBILE */
 @media (max-width: 640px) {
   .hero img { width: 200px; }
   .cta-group { flex-direction: column; }
   .btn { width: 100%; }
-  section { margin-top: 72px; }
+  section { margin-top: 70px; }
 }
 </style>
 </head>
@@ -255,7 +269,7 @@ footer a {
   <section>
     <h2>What Is Digital Real Estate?</h2>
     <p>
-      Digital real estate refers to online assets that can be owned, developed, leased, or sold for profit — similar to physical property, but with global reach and lower barriers.
+      Digital real estate refers to online assets that can be owned, developed, leased, or sold for profit — similar to physical property, but with global reach.
     </p>
   </section>
 
@@ -270,19 +284,19 @@ footer a {
     <div class="grid">
       <div class="card">
         <h3>Education</h3>
-        <p>Clear, beginner-friendly frameworks to identify and acquire valuable digital assets.</p>
+        <p>Clear frameworks to identify and acquire valuable digital assets.</p>
       </div>
       <div class="card">
         <h3>Deal Flow</h3>
-        <p>Curated domain opportunities shared weekly or monthly with our private list.</p>
+        <p>Curated domain opportunities shared with private members.</p>
       </div>
       <div class="card">
         <h3>Mentorship</h3>
-        <p>Hands-on guidance and real market insight, not recycled theory.</p>
+        <p>Hands-on guidance based on real market execution.</p>
       </div>
       <div class="card">
         <h3>Partnerships</h3>
-        <p>Commission-based and 50/50 profit structures aligned with performance.</p>
+        <p>Commission and 50/50 profit-sharing opportunities.</p>
       </div>
     </div>
   </section>
@@ -291,7 +305,7 @@ footer a {
   <section id="join">
     <h2>Join the Free List</h2>
     <p>
-      Get free education, early deal alerts, and access to future mentorship opportunities.
+      Get free education, early deal alerts, and access to future mentorship.
     </p>
 
     <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
@@ -303,28 +317,30 @@ footer a {
 </div>
 
 <footer>
-  © 2026 DREAfrica · Digital Real Estate Education<br>
-  Contact via <a href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank">Telegram</a>
+  © 2026 DREAfrica · Contact via
+  <a href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank">Telegram</a>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
 particlesJS("particles-js", {
   particles: {
-    number: { value: 40 },
-    color: { value: "#c2a26b" },
-    opacity: { value: 0.12 },
+    number: { value: 38 },
+    color: { value: "#9e7c3a" },
+    opacity: { value: 0.14 },
     size: { value: 3 },
     line_linked: {
       enable: true,
-      distance: 150,
-      color: "#c2a26b",
-      opacity: 0.1
+      distance: 160,
+      color: "#9e7c3a",
+      opacity: 0.12
     },
-    move: { speed: 0.6 }
+    move: { speed: 0.55 }
   },
   interactivity: {
-    events: { onhover: { enable: true, mode: "repulse" } }
+    events: {
+      onhover: { enable: true, mode: "repulse" }
+    }
   },
   retina_detect: true
 });
