@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>DREAfrica | Digital Real Estate Education & Deals</title>
+<title>DREAfrica | Digital Real Estate Education</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="DREAfrica educates and partners with beginners and investors to profit from digital real estate through domains, mentorship, and real deal partnerships." />
+<meta name="description" content="DREAfrica educates and partners with beginners and investors to profit from digital real estate through domains, mentorship, and deal flow." />
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -13,14 +13,16 @@
   --bg-main: #0e1217;
   --bg-soft: #141a21;
 
-  /* BRAND COLORS (Gold–Brown Authority) */
-  --text-main: #c9a36a;
-  --text-muted: #b08d5a;
+  /* TEXT (BLENDED, NOT PAINTED) */
+  --text-main: #eef1f5;      /* near-white */
+  --text-muted: #cfd6df;     /* soft white */
+  --heading-gold: #c2a26b;   /* gold-brown accent */
 
-  --accent-gold: #c9a36a;
+  /* ACCENTS */
+  --accent-gold: #c2a26b;
   --accent-blue: #3aa6ff;
 
-  --border-soft: rgba(201,163,106,0.25);
+  --border-soft: rgba(255,255,255,0.08);
 }
 
 * {
@@ -38,63 +40,65 @@ body {
 
 #particles-js {
   position: fixed;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   z-index: -1;
 }
 
 .container {
   max-width: 1200px;
   margin: auto;
-  padding: 80px 20px;
+  padding: 64px 20px;
 }
 
 /* HERO */
 .hero {
   text-align: center;
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
 .hero img {
-  width: 260px;
-  margin-bottom: 30px;
-  transition: transform 0.35s ease, filter 0.35s ease;
-  cursor: pointer;
+  width: 240px;
+  margin-bottom: 14px; /* tighter spacing */
+  transition: transform .3s ease, filter .3s ease;
 }
 
 .hero img:hover {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 22px var(--accent-gold));
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 18px var(--accent-gold));
 }
 
 .hero h1 {
-  font-size: clamp(2.6rem, 5vw, 4.1rem);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
+}
+
+.hero h1 span {
+  color: var(--heading-gold);
 }
 
 .hero p {
-  max-width: 760px;
+  max-width: 720px;
   margin: auto;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--text-muted);
 }
 
 /* BUTTONS */
 .cta-group {
-  margin-top: 42px;
+  margin-top: 34px;
   display: flex;
   justify-content: center;
-  gap: 22px;
+  gap: 18px;
   flex-wrap: wrap;
 }
 
 .btn {
-  padding: 15px 38px;
+  padding: 14px 34px;
   border-radius: 6px;
   font-weight: 600;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
+  letter-spacing: .4px;
+  transition: all .3s ease;
   border: none;
 }
 
@@ -107,89 +111,90 @@ body {
 .btn-primary:hover,
 .btn-secondary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(201,163,106,0.35);
+  box-shadow: 0 12px 30px rgba(194,162,107,0.35);
 }
 
 /* SECTIONS */
 section {
-  margin-top: 120px;
+  margin-top: 96px;
 }
 
 section h2 {
-  font-size: 2.3rem;
-  margin-bottom: 22px;
+  font-size: 2.1rem;
+  margin-bottom: 18px;
   text-align: center;
+  color: var(--heading-gold);
 }
 
 section p {
-  max-width: 860px;
+  max-width: 820px;
   margin: auto;
   text-align: center;
-  color: var(--text-muted);
   font-size: 1.05rem;
-  line-height: 1.8;
+  line-height: 1.75;
+  color: var(--text-muted);
 }
 
-/* SECOND LOGO */
+/* SECTION LOGO */
 .section-logo {
   display: flex;
   justify-content: center;
-  margin-bottom: 34px;
+  margin-bottom: 20px;
 }
 
 .section-logo img {
-  width: 170px;
-  opacity: 0.95;
-  transition: transform 0.35s ease, filter 0.35s ease;
+  width: 150px;
+  transition: transform .3s ease, filter .3s ease;
 }
 
 .section-logo img:hover {
-  transform: scale(1.08);
-  filter: drop-shadow(0 0 18px var(--accent-gold));
+  transform: scale(1.06);
+  filter: drop-shadow(0 0 14px var(--accent-gold));
 }
 
 /* GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 32px;
-  margin-top: 60px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  margin-top: 52px;
 }
 
 .card {
   background: var(--bg-soft);
-  padding: 32px;
+  padding: 28px;
   border-radius: 10px;
   border: 1px solid var(--border-soft);
-  transition: all 0.35s ease;
+  transition: all .3s ease;
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   border-color: var(--accent-gold);
-  box-shadow: 0 24px 46px rgba(0,0,0,0.45);
 }
 
 .card h3 {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+  color: var(--heading-gold);
 }
 
 .card p {
+  font-size: .95rem;
+  color: var(--text-muted);
   text-align: left;
-  font-size: 0.95rem;
 }
 
 /* FORM */
 form {
   max-width: 520px;
-  margin: 50px auto 0;
+  margin: 46px auto 0;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
 input {
-  padding: 15px;
+  padding: 14px;
   background: #0b0f14;
   border: 1px solid var(--border-soft);
   color: var(--text-main);
@@ -204,14 +209,22 @@ input:focus {
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 70px 20px;
+  padding: 56px 20px;
+  font-size: .9rem;
   color: var(--text-muted);
-  font-size: 0.9rem;
 }
 
 footer a {
-  color: var(--accent-gold);
+  color: var(--heading-gold);
   font-weight: 500;
+}
+
+/* MOBILE REFINEMENTS */
+@media (max-width: 640px) {
+  .hero img { width: 200px; }
+  .cta-group { flex-direction: column; }
+  .btn { width: 100%; }
+  section { margin-top: 72px; }
 }
 </style>
 </head>
@@ -225,9 +238,9 @@ footer a {
   <!-- HERO -->
   <div class="hero">
     <img src="logo.png" alt="DREAfrica Logo">
-    <h1>Africa’s Gateway to Digital Real Estate</h1>
+    <h1><span>Africa’s</span> Gateway to Digital Real Estate</h1>
     <p>
-      DREAfrica educates and partners with beginners and investors to profit from digital real estate — domains, mentorship, and high-value digital assets.
+      DREAfrica educates and partners with beginners and investors to profit from digital real estate through domains, mentorship, and structured deal flow.
     </p>
 
     <div class="cta-group">
@@ -242,7 +255,7 @@ footer a {
   <section>
     <h2>What Is Digital Real Estate?</h2>
     <p>
-      Digital real estate refers to online assets that can be owned, developed, leased, or sold for profit — just like physical property.
+      Digital real estate refers to online assets that can be owned, developed, leased, or sold for profit — similar to physical property, but with global reach and lower barriers.
     </p>
   </section>
 
@@ -256,45 +269,29 @@ footer a {
 
     <div class="grid">
       <div class="card">
-        <h3>🎓 Education</h3>
-        <p>Beginner-friendly frameworks to understand, evaluate, and acquire valuable digital assets.</p>
+        <h3>Education</h3>
+        <p>Clear, beginner-friendly frameworks to identify and acquire valuable digital assets.</p>
       </div>
       <div class="card">
-        <h3>📩 Deal Flow</h3>
-        <p>Weekly or monthly curated domain opportunities shared with our private community.</p>
+        <h3>Deal Flow</h3>
+        <p>Curated domain opportunities shared weekly or monthly with our private list.</p>
       </div>
       <div class="card">
-        <h3>🧠 Mentorship</h3>
-        <p>Hands-on guidance, live insight, and practical market experience.</p>
+        <h3>Mentorship</h3>
+        <p>Hands-on guidance and real market insight, not recycled theory.</p>
       </div>
       <div class="card">
-        <h3>🤝 Partnerships</h3>
-        <p>Commission-based and 50/50 deals where expertise meets capital.</p>
+        <h3>Partnerships</h3>
+        <p>Commission-based and 50/50 profit structures aligned with performance.</p>
       </div>
     </div>
-  </section>
-
-  <!-- MONEY -->
-  <section>
-    <h2>How Members Make Money</h2>
-    <p>
-      Buy undervalued domains, resell to end users, partner on high-potential assets, earn commissions, and participate in shared-profit digital real estate deals.
-    </p>
-  </section>
-
-  <!-- WHY AFRICA -->
-  <section>
-    <h2>Why Africa — Why Now</h2>
-    <p>
-      Africa is entering the global digital economy at scale. DREAfrica positions you early — before saturation — with real skills and real opportunities.
-    </p>
   </section>
 
   <!-- JOIN -->
   <section id="join">
     <h2>Join the Free List</h2>
     <p>
-      Get free education, deal alerts, and early access to mentorship and partnerships.
+      Get free education, early deal alerts, and access to future mentorship opportunities.
     </p>
 
     <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
@@ -314,19 +311,17 @@ footer a {
 <script>
 particlesJS("particles-js", {
   particles: {
-    number: { value: 45 },
-    color: { value: "#c9a36a" },
-    shape: { type: "circle" },
-    opacity: { value: 0.14 },
+    number: { value: 40 },
+    color: { value: "#c2a26b" },
+    opacity: { value: 0.12 },
     size: { value: 3 },
     line_linked: {
       enable: true,
       distance: 150,
-      color: "#c9a36a",
-      opacity: 0.12,
-      width: 1
+      color: "#c2a26b",
+      opacity: 0.1
     },
-    move: { enable: true, speed: 0.7 }
+    move: { speed: 0.6 }
   },
   interactivity: {
     events: { onhover: { enable: true, mode: "repulse" } }
