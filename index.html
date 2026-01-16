@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <title>DREAfrica — Digital Real Estate Gateway</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="DREAfrica helps beginners and investors profit from digital real estate through education, mentorship, and real deal partnerships." />
+
+  <!-- SEO -->
+  <meta name="description" content="DREAfrica educates and partners with beginners and investors to profit from digital real estate through mentorship, curated domain deals, and 50/50 partnerships." />
+  <meta name="keywords" content="digital real estate, domain flipping, africa, mentorship, domain deals" />
+  <meta name="author" content="DREAfrica" />
 
   <style>
     :root {
@@ -16,27 +20,19 @@
       --muted: #9aa0b5;
       --card: rgba(255,255,255,0.04);
       --border: rgba(255,255,255,0.08);
-      --glow: 0 0 25px rgba(0,240,255,0.25);
+      --glow: 0 0 30px rgba(0,240,255,0.25);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
       background: radial-gradient(1200px 600px at 50% -10%, #0e1530 0%, var(--bg) 60%);
       color: var(--text);
       overflow-x: hidden;
     }
 
-    canvas {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-    }
+    canvas { position: fixed; inset: 0; z-index: -1; }
 
     header {
       min-height: 100vh;
@@ -47,35 +43,31 @@
       padding: 4rem 1.5rem;
     }
 
-    .hero {
-      max-width: 1100px;
-    }
+    .hero { max-width: 1100px; }
 
     .badge {
       display: inline-block;
       padding: 0.5rem 1rem;
-      border: 1px solid var(--border);
       border-radius: 999px;
+      border: 1px solid var(--border);
       color: var(--secondary);
       margin-bottom: 1.5rem;
       background: rgba(255,255,255,0.03);
     }
 
     h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-size: clamp(2.6rem, 6vw, 4.6rem);
       line-height: 1.1;
       margin-bottom: 1.5rem;
       text-shadow: var(--glow);
     }
 
-    h1 span {
-      color: var(--primary);
-    }
+    h1 span { color: var(--primary); }
 
     .subtitle {
       font-size: clamp(1.1rem, 2.2vw, 1.4rem);
       color: var(--muted);
-      max-width: 800px;
+      max-width: 850px;
       margin: 0 auto 2.5rem;
     }
 
@@ -87,13 +79,13 @@
     }
 
     .btn {
-      padding: 0.9rem 1.5rem;
-      border-radius: 10px;
+      padding: 0.9rem 1.6rem;
+      border-radius: 12px;
       font-weight: 600;
       cursor: pointer;
       border: none;
-      transition: 0.25s ease;
       text-decoration: none;
+      transition: 0.25s ease;
     }
 
     .btn-primary {
@@ -102,9 +94,7 @@
       box-shadow: var(--glow);
     }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-    }
+    .btn-primary:hover { transform: translateY(-2px); }
 
     .btn-outline {
       background: transparent;
@@ -125,7 +115,7 @@
 
     .section-desc {
       color: var(--muted);
-      max-width: 700px;
+      max-width: 720px;
       margin-bottom: 3rem;
     }
 
@@ -138,7 +128,7 @@
     .card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 2rem;
       backdrop-filter: blur(10px);
       transition: 0.3s ease;
@@ -149,16 +139,11 @@
       box-shadow: var(--glow);
     }
 
-    .card h3 {
-      margin-bottom: 0.5rem;
-      color: var(--primary);
-    }
+    .card h3 { margin-bottom: 0.6rem; color: var(--primary); }
 
-    .card p {
-      color: var(--muted);
-      line-height: 1.6;
-    }
+    .card p { color: var(--muted); line-height: 1.6; }
 
+    /* CTA / Form */
     .cta-section {
       text-align: center;
       background: radial-gradient(600px 300px at 50% 0%, #0f1b3d 0%, transparent 70%);
@@ -166,17 +151,17 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .email-box {
+    form {
       margin-top: 2rem;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 0.75rem;
+      flex-wrap: wrap;
     }
 
     input[type="email"] {
       padding: 0.9rem 1rem;
-      border-radius: 10px;
+      border-radius: 12px;
       border: 1px solid var(--border);
       background: rgba(255,255,255,0.05);
       color: var(--text);
@@ -184,17 +169,38 @@
       outline: none;
     }
 
+    /* Modal */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .modal-content {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 2.5rem;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .close {
+      margin-top: 1.5rem;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
     footer {
-      padding: 2rem 1.5rem;
+      padding: 2.5rem 1.5rem;
       text-align: center;
       color: var(--muted);
       font-size: 0.9rem;
-    }
-
-    @media (min-width: 1800px) {
-      body {
-        font-size: 18px;
-      }
     }
   </style>
 </head>
@@ -205,113 +211,116 @@
 
 <header>
   <div class="hero">
-    <div class="badge">Digital Real Estate • Education • Deal Flow</div>
+    <div class="badge">Digital Real Estate • Mentorship • Deal Flow</div>
     <h1>Africa’s Gateway to <span>Digital Real Estate</span></h1>
     <p class="subtitle">
-      DREAfrica educates and partners with beginners and investors to profit from
-      digital real estate through mentorship, curated deal flow, and real 50/50 partnerships.
+      Learn, acquire, and profit from digital assets through education,
+      curated domain opportunities, and real 50/50 partnerships.
     </p>
     <div class="cta-group">
-      <a href="#join" class="btn btn-primary">Join the Free List</a>
-      <a href="#how" class="btn btn-outline">How It Works</a>
+      <a href="#join" class="btn btn-primary">Join Free List</a>
+      <a href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank" class="btn btn-outline">Telegram Hub</a>
     </div>
   </div>
 </header>
 
 <section id="how">
-  <h2 class="section-title">What Is Digital Real Estate?</h2>
+  <h2 class="section-title">What We Do</h2>
   <p class="section-desc">
-    Digital real estate consists of online assets that can be owned, developed,
-    leased, or sold for profit — just like physical property, but globally accessible.
+    DREAfrica helps beginners enter digital real estate with clarity, access, and real market exposure.
   </p>
 
   <div class="grid">
-    <div class="card">
-      <h3>Education</h3>
-      <p>Beginner-friendly frameworks that teach you how to identify and evaluate valuable digital assets.</p>
-    </div>
-    <div class="card">
-      <h3>Deal Flow</h3>
-      <p>Weekly or monthly curated domain opportunities shared with our private list.</p>
-    </div>
-    <div class="card">
-      <h3>Mentorship</h3>
-      <p>Hands-on guidance, live insight, and real market logic — not recycled theory.</p>
-    </div>
-    <div class="card">
-      <h3>Partnerships</h3>
-      <p>Commission-based and 50/50 deals where capital meets experience.</p>
-    </div>
+    <div class="card"><h3>Education</h3><p>Clear frameworks for identifying valuable digital assets.</p></div>
+    <div class="card"><h3>Weekly Deals</h3><p>Curated domain opportunities with real resale logic.</p></div>
+    <div class="card"><h3>Mentorship</h3><p>Hands-on guidance and deal evaluation support.</p></div>
+    <div class="card"><h3>50/50 Partnerships</h3><p>We partner with capital on high-potential assets.</p></div>
   </div>
 </section>
 
 <section>
-  <h2 class="section-title">Why Africa — Why Now</h2>
-  <p class="section-desc">
-    Africa is entering the global digital economy at scale. DREAfrica positions you
-    early — not late — in a market with rising demand and low barriers to entry.
-  </p>
+  <h2 class="section-title">Domain Deal Preview</h2>
+  <p class="section-desc">Examples of the type of assets shared with premium members.</p>
+
+  <div class="grid">
+    <div class="card"><h3>FinTechSignal.com</h3><p>High demand niche, brandable, global buyers.</p></div>
+    <div class="card"><h3>PayBridge.io</h3><p>Short, strong, venture-friendly naming style.</p></div>
+    <div class="card"><h3>MedFlowAI.com</h3><p>AI + healthcare crossover demand.</p></div>
+  </div>
 </section>
 
 <section id="join" class="cta-section">
-  <h2 class="section-title">Get Free Access + Deal Alerts</h2>
-  <p class="section-desc">
-    Join the DREAfrica free list and start understanding how digital real estate really works.
+  <h2 class="section-title">Join Free + Get Deal Alerts</h2>
+  <p class="section-desc">Education, curated domains, and Telegram access.</p>
+
+  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <input type="email" name="email" placeholder="Enter your email" required />
+    <button class="btn btn-primary" type="submit">Join Free</button>
+  </form>
+
+  <p style="margin-top:1.5rem;color:var(--muted);">
+    Or join us directly on Telegram:
+    <a href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank" style="color:var(--primary);">t.me/DREAfrica</a>
   </p>
 
-  <div class="email-box">
-    <input type="email" placeholder="Enter your email" />
-    <button class="btn btn-primary">Join Free</button>
+  <div style="margin-top:2.5rem;">
+    <button class="btn btn-outline" onclick="openModal()">Join Mentorship Waitlist</button>
   </div>
 </section>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3>Mentorship Waitlist</h3>
+    <p style="margin-top:1rem;color:var(--muted);">
+      Join the waitlist for mentorship & partnership opportunities.
+    </p>
+    <div class="close" onclick="closeModal()">Close</div>
+  </div>
+</div>
 
 <footer>
   © <span id="year"></span> DREAfrica — Digital Real Estate Africa
 </footer>
 
 <script>
-  // Footer year
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Particle background
+  const modal = document.getElementById("modal");
+  function openModal(){ modal.style.display = "flex"; }
+  function closeModal(){ modal.style.display = "none"; }
+
   const canvas = document.getElementById("particles");
   const ctx = canvas.getContext("2d");
   let w, h, particles;
 
-  function resize() {
+  function resize(){
     w = canvas.width = window.innerWidth;
     h = canvas.height = window.innerHeight;
-    particles = Array.from({ length: Math.floor(w / 15) }, () => ({
-      x: Math.random() * w,
-      y: Math.random() * h,
-      r: Math.random() * 1.5 + 0.5,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3
+    particles = Array.from({length: Math.floor(w/15)}, () => ({
+      x: Math.random()*w,
+      y: Math.random()*h,
+      r: Math.random()*1.5+0.5,
+      vx:(Math.random()-0.5)*0.3,
+      vy:(Math.random()-0.5)*0.3
     }));
   }
 
   window.addEventListener("resize", resize);
   resize();
 
-  function animate() {
-    ctx.clearRect(0, 0, w, h);
-    ctx.fillStyle = "rgba(0,240,255,0.7)";
-
-    particles.forEach(p => {
-      p.x += p.vx;
-      p.y += p.vy;
-
-      if (p.x < 0 || p.x > w) p.vx *= -1;
-      if (p.y < 0 || p.y > h) p.vy *= -1;
-
+  function animate(){
+    ctx.clearRect(0,0,w,h);
+    ctx.fillStyle="rgba(0,240,255,0.7)";
+    particles.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>w)p.vx*=-1;
+      if(p.y<0||p.y>h)p.vy*=-1;
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
       ctx.fill();
     });
-
     requestAnimationFrame(animate);
   }
-
   animate();
 </script>
 
