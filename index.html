@@ -12,12 +12,11 @@
   --bg-main: #0b0e12;
   --bg-soft: #12161c;
 
-  /* DEEP LOGO GOLD (NOT BASIC) */
-  --gold-main: #9e7c3a;      /* dark rich gold */
-  --gold-soft: #c9a45c;      /* highlight gold */
+  /* DEEP LOGO GOLD */
+  --gold-main: #9e7c3a;
+  --gold-soft: #c9a45c;
   --gold-glow: rgba(158,124,58,0.45);
 
-  /* TEXT */
   --text-main: #f2f2f2;
   --text-muted: #cfd3da;
 
@@ -37,7 +36,6 @@ body {
   overflow-x: hidden;
 }
 
-/* REMOVE ALL DEFAULT LINK STYLES */
 a {
   text-decoration: none;
   color: inherit;
@@ -56,21 +54,27 @@ a {
   padding: 56px 20px;
 }
 
-/* HERO */
+/* ---------- HERO ---------- */
 .hero {
   text-align: center;
   padding-top: 10px;
 }
 
+/* LOGO INTRO ANIMATION */
 .hero img {
   width: 240px;
   margin-bottom: 10px;
-  transition: transform .3s ease, filter .3s ease;
+  opacity: 0;
+  transform: scale(0.85);
+  animation: logoIntro 1.2s ease forwards;
 }
 
-.hero img:hover {
-  transform: scale(1.06);
-  filter: drop-shadow(0 0 20px var(--gold-glow));
+@keyframes logoIntro {
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 22px var(--gold-glow));
+  }
 }
 
 .hero h1 {
@@ -90,7 +94,7 @@ a {
   color: var(--text-muted);
 }
 
-/* BUTTONS (FIXED — NO UNDERLINES) */
+/* BUTTONS */
 .cta-group {
   margin-top: 32px;
   display: flex;
@@ -104,21 +108,14 @@ a {
   border-radius: 6px;
   font-weight: 600;
   letter-spacing: .4px;
-  border: none;
   cursor: pointer;
-  display: inline-block;
-  text-decoration: none !important;
+  border: none;
   transition: all .35s ease;
 }
 
-/* PRIMARY & TELEGRAM MATCH */
 .btn-primary,
 .btn-secondary {
-  background: linear-gradient(
-    135deg,
-    var(--gold-main),
-    var(--gold-soft)
-  );
+  background: linear-gradient(135deg, var(--gold-main), var(--gold-soft));
   color: #0b0e12;
 }
 
@@ -128,9 +125,17 @@ a {
   box-shadow: 0 14px 34px var(--gold-glow);
 }
 
-/* SECTIONS */
+/* ---------- SECTIONS ---------- */
 section {
   margin-top: 88px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all .8s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 section h2 {
@@ -158,11 +163,6 @@ section p {
 
 .section-logo img {
   width: 150px;
-  transition: transform .3s ease, filter .3s ease;
-}
-
-.section-logo img:hover {
-  transform: scale(1.06);
   filter: drop-shadow(0 0 16px var(--gold-glow));
 }
 
@@ -338,12 +338,26 @@ particlesJS("particles-js", {
     move: { speed: 0.55 }
   },
   interactivity: {
-    events: {
-      onhover: { enable: true, mode: "repulse" }
-    }
+    events: { onhover: { enable: true, mode: "repulse" } }
   },
   retina_detect: true
 });
+
+/* SECTION FADE-IN OBSERVER */
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
+
+sections.forEach(section => observer.observe(section));
 </script>
 
 </body>
