@@ -5,7 +5,6 @@
 <title>DREAfrica | Digital Real Estate Education & Partnerships</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="DREAfrica educates and partners with investors to profit from digital real estate through domains, mentorship, deal flow, and partnerships.">
-<meta name="keywords" content="digital real estate, domain flipping, domain investing, online assets, DREAfrica">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -26,13 +25,13 @@ body{background:var(--bg-main);color:var(--text-main);overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 
 #particles-js{position:fixed;inset:0;z-index:-1}
-.container{max-width:1200px;margin:auto;padding:56px 20px}
+.container{max-width:1200px;margin:auto;padding:52px 20px}
 
 /* HERO */
-.hero{text-align:center;padding-top:10px}
+.hero{text-align:center;padding-top:6px}
 .hero img{
-  width:240px;
-  margin-bottom:8px;
+  width:280px;
+  margin-bottom:4px;
   opacity:0;
   transform:scale(.85);
   animation:logoIntro 1.2s ease forwards;
@@ -40,38 +39,45 @@ a{text-decoration:none;color:inherit}
 @keyframes logoIntro{
   to{opacity:1;transform:scale(1);filter:drop-shadow(0 0 22px var(--gold-glow))}
 }
-.hero h1{font-size:clamp(2.2rem,5vw,3.7rem);font-weight:700;margin-bottom:12px}
+.hero h1{
+  font-size:clamp(2.2rem,5vw,3.7rem);
+  font-weight:700;
+  margin-bottom:12px;
+}
 .hero h1 span{color:var(--gold-main)}
-.hero p{max-width:720px;margin:auto;font-size:1.05rem;color:var(--text-muted)}
+.hero p{
+  max-width:720px;
+  margin:0 auto;
+  font-size:1.05rem;
+  color:var(--text-muted);
+}
 
 .cta-group{
-  margin-top:32px;
+  margin-top:28px;
   display:flex;
   justify-content:center;
   gap:18px;
   flex-wrap:wrap;
 }
 .btn{
-  padding:14px 36px;
+  padding:14px 38px;
   border-radius:6px;
   font-weight:600;
   letter-spacing:.4px;
   border:none;
   cursor:pointer;
   transition:.35s ease;
-}
-.btn-primary,.btn-secondary{
   background:linear-gradient(135deg,var(--gold-main),var(--gold-soft));
   color:#0b0e12;
 }
-.btn-primary:hover,.btn-secondary:hover{
+.btn:hover{
   transform:translateY(-2px);
   box-shadow:0 14px 34px var(--gold-glow);
 }
 
 /* SECTIONS */
 section{
-  margin-top:88px;
+  margin-top:86px;
   opacity:0;
   transform:translateY(30px);
   transition:.8s ease;
@@ -92,7 +98,7 @@ section p{
   color:var(--text-muted);
 }
 
-/* IMAGE SECTION */
+/* IMAGE BLOCK */
 .image-block{
   margin-top:48px;
   display:grid;
@@ -108,9 +114,16 @@ section p{
   filter:brightness(.85) contrast(1.05);
 }
 
-/* LOGO MID */
-.section-logo{display:flex;justify-content:center;margin-bottom:16px}
-.section-logo img{width:150px;filter:drop-shadow(0 0 16px var(--gold-glow))}
+/* MID LOGO */
+.section-logo{
+  display:flex;
+  justify-content:center;
+  margin-bottom:12px;
+}
+.section-logo img{
+  width:180px;
+  filter:drop-shadow(0 0 16px var(--gold-glow));
+}
 
 /* GRID */
 .grid{
@@ -141,17 +154,14 @@ section p{
 .counter h3{font-size:2.4rem;color:var(--gold-main)}
 .counter p{font-size:.95rem;color:var(--text-muted)}
 
-/* TESTIMONIALS */
-.testimonial{
-  background:var(--bg-soft);
-  border:1px solid var(--border-soft);
-  padding:24px;
-  border-radius:10px;
-  font-size:.95rem;
-}
-
 /* FORM */
-form{max-width:520px;margin:44px auto 0;display:flex;flex-direction:column;gap:16px}
+form{
+  max-width:520px;
+  margin:44px auto 0;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
 input{
   padding:14px;
   background:#080a0e;
@@ -161,16 +171,20 @@ input{
 }
 input:focus{outline:none;border-color:var(--gold-main)}
 
+.telegram-cta{
+  text-align:center;
+  margin-top:26px;
+}
+
 footer{
   text-align:center;
   padding:52px 20px;
   font-size:.9rem;
   color:var(--text-muted);
 }
-footer a{color:var(--gold-main);font-weight:500}
 
 @media(max-width:640px){
-  .hero img{width:200px}
+  .hero img{width:230px}
   .cta-group{flex-direction:column}
   .btn{width:100%}
   section{margin-top:70px}
@@ -180,6 +194,7 @@ footer a{color:var(--gold-main);font-weight:500}
 
 <body>
 <div id="particles-js"></div>
+
 <div class="container">
 
 <!-- HERO -->
@@ -188,8 +203,8 @@ footer a{color:var(--gold-main);font-weight:500}
   <h1><span>Africa’s</span> Gateway to Digital Real Estate</h1>
   <p>DREAfrica educates and partners with beginners and investors to profit from digital real estate through domains, mentorship, and deal flow.</p>
   <div class="cta-group">
-    <a href="#join" class="btn btn-primary">Join Free List</a>
-    <a href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank" class="btn btn-secondary">Contact on Telegram</a>
+    <a href="#join" class="btn">Join Free List</a>
+    <a href="mentorship.html" class="btn">Premium Mentorship</a>
   </div>
 </div>
 
@@ -197,9 +212,9 @@ footer a{color:var(--gold-main);font-weight:500}
 <section>
   <h2>Digital Assets Are the New Property</h2>
   <div class="image-block">
-    <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72" alt="">
-    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="">
-    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt="">
+    <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72">
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786">
   </div>
 </section>
 
@@ -218,22 +233,11 @@ footer a{color:var(--gold-main);font-weight:500}
   <h2>What DREAfrica Does</h2>
   <div class="grid">
     <div class="card"><h3>Education</h3><p>Learn how digital real estate works from first principles.</p></div>
-    <div class="card"><h3>Deal Flow</h3><p>Get curated domain opportunities.</p></div>
-    <div class="card"><h3>Mentorship</h3><p>Real guidance, not recycled theory.</p></div>
+    <div class="card"><h3>Deal Flow</h3><p>Curated domain opportunities.</p></div>
+    <div class="card"><h3>Mentorship</h3><p>Direct guidance and execution.</p></div>
     <div class="card"><h3>Partnerships</h3><p>Commission & 50/50 profit deals.</p></div>
   </div>
 </section>
-
-<!-- TESTIMONIALS -->
-<section>
-  <h2>What Early Members Say</h2>
-  <div class="grid">
-    <div class="testimonial">“This changed how I see online assets completely.”</div>
-    <div class="testimonial">“Clear education. Real opportunities.”</div>
-    <div class="testimonial">“Feels like being early to property again.”</div>
-  </div>
-</section>
-
 
 <!-- JOIN -->
 <section id="join">
@@ -241,46 +245,38 @@ footer a{color:var(--gold-main);font-weight:500}
   <p>Get education, deal alerts, and early access.</p>
   <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
     <input type="email" name="email" placeholder="Your email address" required>
-    <button type="submit" class="btn btn-primary">Join Free</button>
+    <button type="submit" class="btn">Join Free</button>
   </form>
+
+  <div class="telegram-cta">
+    <a href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank" class="btn">
+      Contact on Telegram
+    </a>
+  </div>
 </section>
 
 </div>
 
-
-    <a href="mentorship.html" class="btn secondary-btn">
-  Premium Mentorship
-</a>
-
 <footer>
-© 2026 DREAfrica · Contact via <a href="https://t.me/YOUR_TELEGRAM_USERNAME">Telegram</a>
+© 2026 DREAfrica
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
 particlesJS("particles-js",{particles:{number:{value:38},color:{value:"#9e7c3a"},opacity:{value:.14},size:{value:3},line_linked:{enable:true,distance:160,color:"#9e7c3a",opacity:.12},move:{speed:.55}},interactivity:{events:{onhover:{enable:true,mode:"repulse"}}},retina_detect:true});
 
-/* FADE-IN */
 const sections=document.querySelectorAll("section");
 const observer=new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting)i.target.classList.add("visible")})},{threshold:.2});
 sections.forEach(s=>observer.observe(s));
 
-/* COUNTERS */
 const counters=document.querySelectorAll("[data-count]");
 counters.forEach(counter=>{
-  let target=+counter.dataset.count;
-  let count=0;
-  let inc=target/60;
-  function update(){
+  let target=+counter.dataset.count,count=0,inc=target/60;
+  (function update(){
     count+=inc;
-    if(count<target){
-      counter.innerText=Math.floor(count);
-      requestAnimationFrame(update);
-    }else{
-      counter.innerText=target;
-    }
-  }
-  update();
+    if(count<target){counter.innerText=Math.floor(count);requestAnimationFrame(update);}
+    else counter.innerText=target;
+  })();
 });
 </script>
 </body>
