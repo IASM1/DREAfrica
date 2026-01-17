@@ -229,7 +229,6 @@ footer{
 
 <!-- WHAT WE DO -->
 <section>
-
   <h2>What DREAfrica Does</h2>
   <div class="grid">
     <div class="card"><h3>Education</h3><p>Learn how digital real estate works from first principles.</p></div>
@@ -243,13 +242,11 @@ footer{
 <section id="join">
   <h2>Join the Free List</h2>
   <p>Get education, deal alerts, and early access.</p>
- <form id="freeForm">
-  <input type="email" id="freeEmail" name="email" placeholder="Your email address" required>
-  <input type="text" id="freeName" name="name" placeholder="Your name (optional)">
-  <button type="submit" class="btn">Join Free</button>
-</form>
-
-   
+  <form id="freeForm">
+    <input type="email" id="freeEmail" name="email" placeholder="Your email address" required>
+    <input type="text" id="freeName" name="name" placeholder="Your name (optional)">
+    <button type="submit" class="btn">Join Free</button>
+  </form>
 </section>
 
 </div>
@@ -261,38 +258,5 @@ footer{
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
-const freeForm = document.getElementById("freeForm");
-
-freeForm.addEventListener("submit", async function(e){
-  e.preventDefault();
-
-  const email = document.getElementById("freeEmail").value.trim();
-  const name = document.getElementById("freeName").value.trim() || "N/A";
-
-  if(!email){
-    alert("Please enter your email.");
-    return;
-  }
-
-  const payload = { email, name };
-
-  try {
-    // Send to your Cloudflare Worker
-    await fetch("https://YOUR_WORKER_URL/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-
-    // Redirect to Telegram channel after submission
-    window.location.href = "https://t.me/YOUR_TELEGRAM_CHANNEL";
-  } catch(err){
-    alert("Oops! Something went wrong. Try again.");
-    console.error(err);
-  }
-});
-
-</script>
-</body>
-</html>
-
+// Particles
+particlesJS("particles-js",{particles:{number:{value:38},color:{value:"#9e7c3a"},opacity:{value:.14},size:{value:3},line_linked:{enable:true,distance:160,color:"#9e7c3a",opacity:.12_
