@@ -290,14 +290,14 @@ freeForm.addEventListener("submit", async function(e){
   }
 
   try {
-    await fetch("https://YOUR_WORKER_URL/", { // <-- replace with your Worker URL
+    await fetch("https://proud-thunder-78a7.iamsomethingmore.workers.dev", { // <-- replace with your Worker URL
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, name })
     });
 
     // Redirect to Telegram after submission
-    window.location.href = "https://t.me/YOUR_TELEGRAM_CHANNEL"; // <-- replace with your channel
+    window.location.href = "https://t.me/Dre_Africa"; // <-- replace with your channel
   } catch(err){
     alert("Oops! Something went wrong. Try again.");
     console.error(err);
