@@ -43,10 +43,8 @@ a{text-decoration:none;color:inherit}
   color:var(--text-muted);
 }
 
-/* CTA */
-.cta{
-  margin-top:34px;
-}
+/* CTA BUTTON */
+.cta{margin-top:34px}
 .btn{
   padding:14px 38px;
   border-radius:6px;
@@ -54,6 +52,8 @@ a{text-decoration:none;color:inherit}
   background:linear-gradient(135deg,var(--gold-main),var(--gold-soft));
   color:#0b0e12;
   display:inline-block;
+  border:none;
+  cursor:pointer;
   transition:.35s ease;
 }
 .btn:hover{
@@ -106,6 +106,41 @@ section p{
   color:var(--text-muted);
 }
 
+/* MODAL FORM */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:99;
+}
+.modal.active{display:flex}
+
+.form-box{
+  background:var(--bg-soft);
+  border:1px solid var(--border-soft);
+  padding:30px;
+  border-radius:12px;
+  width:100%;
+  max-width:420px;
+}
+.form-box h3{
+  text-align:center;
+  color:var(--gold-main);
+  margin-bottom:20px;
+}
+.form-box input{
+  width:100%;
+  padding:12px;
+  margin-bottom:14px;
+  border-radius:6px;
+  border:1px solid var(--border-soft);
+  background:#0b0e12;
+  color:#fff;
+}
+
 /* FOOTER */
 footer{
   text-align:center;
@@ -113,7 +148,6 @@ footer{
   font-size:.9rem;
   color:var(--text-muted);
 }
-footer a{color:var(--gold-main)}
 
 @media(max-width:640px){
   section{margin-top:70px}
@@ -134,13 +168,10 @@ footer a{color:var(--gold-main)}
   </p>
 
   <div class="cta">
-    <a href="https://t.me/@an00_q" target="_blank" class="btn">
-      Apply via Telegram
-    </a>
+    <button class="btn" onclick="openForm()">Contact on Telegram</button>
   </div>
 </div>
 
-<!-- WHAT THIS IS -->
 <section>
   <h2>What This Mentorship Really Is</h2>
   <p>
@@ -148,57 +179,40 @@ footer a{color:var(--gold-main)}
   </p>
 </section>
 
-<!-- WHAT YOU GET -->
 <section>
   <h2>What You Get Access To</h2>
-
   <div class="grid">
-    <div class="card">
-      <h3>Private Deal Flow</h3>
-      <p>Curated digital real estate opportunities not shared publicly.</p>
-    </div>
-    <div class="card">
-      <h3>One-on-One Guidance</h3>
-      <p>Direct insight on acquisition, pricing, and exit strategy.</p>
-    </div>
-    <div class="card">
-      <h3>50/50 Partnerships</h3>
-      <p>Capital + execution aligned through shared upside.</p>
-    </div>
-    <div class="card">
-      <h3>Execution Frameworks</h3>
-      <p>How to think, analyze, and move like a digital asset investor.</p>
-    </div>
+    <div class="card"><h3>Private Deal Flow</h3><p>Curated digital real estate opportunities not shared publicly.</p></div>
+    <div class="card"><h3>One-on-One Guidance</h3><p>Direct insight on acquisition, pricing, and exit strategy.</p></div>
+    <div class="card"><h3>50/50 Partnerships</h3><p>Capital + execution aligned through shared upside.</p></div>
+    <div class="card"><h3>Execution Frameworks</h3><p>How to think, analyze, and move like a digital asset investor.</p></div>
   </div>
 </section>
 
-<!-- WHO IT IS FOR -->
-<section>
-  <h2>Who This Is For</h2>
-  <p>
-    Beginners willing to learn, operators seeking leverage, and investors who understand long-term digital ownership.
-  </p>
-</section>
-
-<!-- FINAL CTA -->
 <section>
   <h2>How to Get Started</h2>
-  <p>
-    There is no public checkout. Entry is by conversation and alignment.
-  </p>
-
+  <p>Entry is by conversation and alignment.</p>
   <div class="cta" style="text-align:center;margin-top:30px">
-    <a href="https://t.me/@an00_q" target="_blank" class="btn">
-      Message on Telegram
-    </a>
+    <button class="btn" onclick="openForm()">Apply via Telegram</button>
   </div>
 </section>
 
 </div>
 
-<footer>
-© 2026 DREAfrica · Premium Mentorship
-</footer>
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="form-box">
+    <h3>Telegram Application</h3>
+    <input id="name" placeholder="Full Name">
+    <input id="email" placeholder="Email">
+    <input id="country" placeholder="Country">
+    <input id="phone" placeholder="Phone Number">
+    <input id="telegram" placeholder="Telegram Username (optional)">
+    <button class="btn" onclick="sendTelegram()">Submit</button>
+  </div>
+</div>
+
+<footer>© 2026 DREAfrica · Premium Mentorship</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
@@ -214,12 +228,21 @@ particlesJS("particles-js",{
   retina_detect:true
 });
 
-/* FADE-IN */
-const sections=document.querySelectorAll("section");
-const observer=new IntersectionObserver(e=>{
-  e.forEach(i=>{if(i.isIntersecting)i.target.classList.add("visible")});
-},{threshold:.2});
-sections.forEach(s=>observer.observe(s));
+function openForm(){
+  document.getElementById("modal").classList.add("active");
+}
+
+function sendTelegram(){
+  const msg = `
+DREAfrica Mentorship Application
+Name: ${name.value}
+Email: ${email.value}
+Country: ${country.value}
+Phone: ${phone.value}
+Telegram: ${telegram.value || "N/A"}
+`;
+  window.open(`https://t.me/an00_q?text=${encodeURIComponent(msg)}`);
+}
 </script>
 
 </body>
