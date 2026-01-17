@@ -232,6 +232,7 @@ footer{
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
+// Particles
 particlesJS("particles-js",{
   particles:{
     number:{value:32},
@@ -244,34 +245,56 @@ particlesJS("particles-js",{
   retina_detect:true
 });
 
-/* FADE IN */
+// Fade-in sections
 const sections=document.querySelectorAll("section");
-const observer=new IntersectionObserver(e=>{
-  e.forEach(i=>{if(i.isIntersecting)i.target.classList.add("visible")});
-},{threshold:.2});
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add("visible");
+  });
+},{threshold:0.2});
 sections.forEach(s=>observer.observe(s));
 
+// Open modal
 function openForm(){
   document.getElementById("modal").classList.add("active");
 }
 
+// Submit form
 async function submitForm(){
-  const payload={
-    name:name.value,
-    email:email.value,
-    country:country.value,
-    phone:phone.value,
-    telegram:telegram.value
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const countryInput = document.getElementById("country");
+  const phoneInput = document.getElementById("phone");
+  const telegramInput = document.getElementById("telegram");
+
+  // Validate required fields
+  if(!nameInput.value.trim() || !emailInput.value.trim() || !countryInput.value.trim() || !phoneInput.value.trim()){
+    alert("Please fill all required fields.");
+    return;
+  }
+
+  const payload = {
+    name: nameInput.value.trim(),
+    email: emailInput.value.trim(),
+    country: countryInput.value.trim(),
+    phone: phoneInput.value.trim(),
+    telegram: telegramInput.value.trim() || "N/A"
   };
 
-  await fetch("https://proud-thunder-78a7.iamsomethingmore.workers.dev/",{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify(payload)
-  });
+  try{
+    await fetch("https://proud-thunder-78a7.iamsomethingmore.workers.dev/",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(payload)
+    });
 
-  document.getElementById("formView").style.display="none";
-  document.getElementById("thankYouView").style.display="block";
+    // Show thank-you
+    document.getElementById("formView").style.display="none";
+    document.getElementById("thankYouView").style.display="block";
+  } catch(err){
+    alert("Error sending application. Try again.");
+    console.error(err);
+  }
 }
 </script>
 
