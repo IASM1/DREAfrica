@@ -264,7 +264,7 @@ async function submitForm(){
     telegram:telegram.value
   };
 
-  await fetch("YOUR_WORKER_URL_HERE",{
+  await fetch("https://dreafrica.iamsomethingmore.workers.dev",{
     method:"POST",
     headers:{"Content-Type":"application/json"},
     body:JSON.stringify(payload)
