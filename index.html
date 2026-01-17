@@ -259,4 +259,50 @@ footer{
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
 // Particles
-particlesJS("particles-js",{particles:{number:{value:38},color:{value:"#9e7c3a"},opacity:{value:.14},size:{value:3},line_linked:{enable:true,distance:160,color:"#9e7c3a",opacity:.12_
+particlesJS("particles-js",{particles:{number:{value:38},color:{value:"#9e7c3a"},opacity:{value:.14},size:{value:3},line_linked:{enable:true,distance:160,color:"#9e7c3a",opacity:.12},move:{speed:.55}},interactivity:{events:{onhover:{enable:true,mode:"repulse"}}},retina_detect:true});
+
+// Fade-in sections
+const sections=document.querySelectorAll("section");
+const observer=new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting)i.target.classList.add("visible")})},{threshold:.2});
+sections.forEach(s=>observer.observe(s));
+
+// Counters
+const counters=document.querySelectorAll("[data-count]");
+counters.forEach(counter=>{
+  let target=+counter.dataset.count,count=0,inc=target/60;
+  (function update(){
+    count+=inc;
+    if(count<target){counter.innerText=Math.floor(count);requestAnimationFrame(update);}
+    else counter.innerText=target;
+  })();
+});
+
+// Free form submit
+const freeForm = document.getElementById("freeForm");
+freeForm.addEventListener("submit", async function(e){
+  e.preventDefault();
+  const email = document.getElementById("freeEmail").value.trim();
+  const name = document.getElementById("freeName").value.trim() || "N/A";
+
+  if(!email){
+    alert("Please enter your email.");
+    return;
+  }
+
+  try {
+    await fetch("https://YOUR_WORKER_URL/", { // <-- replace with your Worker URL
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, name })
+    });
+
+    // Redirect to Telegram after submission
+    window.location.href = "https://t.me/YOUR_TELEGRAM_CHANNEL"; // <-- replace with your channel
+  } catch(err){
+    alert("Oops! Something went wrong. Try again.");
+    console.error(err);
+  }
+});
+</script>
+</body>
+</html>
