@@ -51,7 +51,6 @@ a{text-decoration:none;color:inherit}
   font-weight:600;
   background:linear-gradient(135deg,var(--gold-main),var(--gold-soft));
   color:#0b0e12;
-  display:inline-block;
   border:none;
   cursor:pointer;
   transition:.35s ease;
@@ -97,7 +96,7 @@ section p{
   padding:28px;
   border-radius:10px;
 }
-.card h3{color:var(--gold-soft);margin-bottom:10px}
+.card h3{color:var(--gold-soft)}
 .card p{font-size:.95rem;color:var(--text-muted)}
 
 /* MODAL */
@@ -121,10 +120,7 @@ section p{
   max-width:420px;
   text-align:center;
 }
-.form-box h3{
-  color:var(--gold-main);
-  margin-bottom:20px;
-}
+.form-box h3{color:var(--gold-main);margin-bottom:20px}
 .form-box input{
   width:100%;
   padding:12px;
@@ -137,23 +133,12 @@ section p{
 .form-box .btn{width:100%}
 
 /* THANK YOU */
-.thankyou{
-  display:none;
-}
+.thankyou{display:none}
 .thankyou h3{color:var(--gold-main)}
-.thankyou p{color:var(--text-muted);margin:12px 0 24px}
+.thankyou p{color:var(--text-muted);margin:14px 0 24px}
 
 /* FOOTER */
-footer{
-  text-align:center;
-  padding:60px 20px;
-  font-size:.9rem;
-  color:var(--text-muted);
-}
-
-@media(max-width:640px){
-  section{margin-top:70px}
-}
+footer{text-align:center;padding:60px 20px;font-size:.9rem;color:var(--text-muted)}
 </style>
 </head>
 
@@ -162,12 +147,9 @@ footer{
 
 <div class="container">
 
-<!-- HERO -->
 <div class="hero">
   <h1><span>Premium</span> Digital Real Estate Mentorship</h1>
-  <p>
-    This is not a course. This is direct access, deal flow, and structured execution in the digital real estate market.
-  </p>
+  <p>This is not a course. This is direct access, deal flow, and structured execution.</p>
   <div class="cta">
     <button class="btn" onclick="openForm()">Contact on Telegram</button>
   </div>
@@ -175,26 +157,16 @@ footer{
 
 <section>
   <h2>What This Mentorship Really Is</h2>
-  <p>
-    The DREAfrica mentorship is designed for individuals who want real exposure to digital asset ownership, domains, deal structuring, and profit partnerships.
-  </p>
+  <p>Real exposure to digital asset ownership, domains, deal structuring, and partnerships.</p>
 </section>
 
 <section>
   <h2>What You Get Access To</h2>
   <div class="grid">
-    <div class="card"><h3>Private Deal Flow</h3><p>Curated digital real estate opportunities.</p></div>
-    <div class="card"><h3>One-on-One Guidance</h3><p>Direct insight on acquisition and exits.</p></div>
-    <div class="card"><h3>50/50 Partnerships</h3><p>Aligned upside, shared execution.</p></div>
-    <div class="card"><h3>Execution Frameworks</h3><p>Think and operate like an asset owner.</p></div>
-  </div>
-</section>
-
-<section>
-  <h2>How to Get Started</h2>
-  <p>Entry is by conversation and alignment.</p>
-  <div class="cta" style="text-align:center;margin-top:30px">
-    <button class="btn" onclick="openForm()">Apply via Telegram</button>
+    <div class="card"><h3>Private Deal Flow</h3><p>Curated opportunities.</p></div>
+    <div class="card"><h3>1-on-1 Guidance</h3><p>Direct strategic insight.</p></div>
+    <div class="card"><h3>50/50 Deals</h3><p>Aligned incentives.</p></div>
+    <div class="card"><h3>Execution Frameworks</h3><p>Owner-level thinking.</p></div>
   </div>
 </section>
 
@@ -202,26 +174,21 @@ footer{
 
 <!-- MODAL -->
 <div class="modal" id="modal">
-  <div class="form-box" id="formBox">
+  <div class="form-box">
 
-    <!-- FORM -->
     <div id="formView">
       <h3>Mentorship Application</h3>
-      <input id="name" placeholder="Full Name" required>
-      <input id="email" placeholder="Email" required>
-      <input id="country" placeholder="Country" required>
-      <input id="phone" placeholder="Phone Number" required>
+      <input id="name" placeholder="Full Name">
+      <input id="email" placeholder="Email">
+      <input id="country" placeholder="Country">
+      <input id="phone" placeholder="Phone Number">
       <input id="telegram" placeholder="Telegram Username (optional)">
       <button class="btn" onclick="submitForm()">Submit Application</button>
     </div>
 
-    <!-- THANK YOU -->
     <div class="thankyou" id="thankYouView">
       <h3>Application Received</h3>
-      <p>
-        Thank you. Your application has been sent securely.<br>
-        We’ll contact you shortly on Telegram.
-      </p>
+      <p>We’ll contact you shortly.</p>
       <a href="index.html" class="btn">Back to Home</a>
     </div>
 
@@ -232,24 +199,7 @@ footer{
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
-particlesJS("particles-js",{
-  particles:{
-    number:{value:32},
-    color:{value:"#9e7c3a"},
-    opacity:{value:.12},
-    size:{value:3},
-    line_linked:{enable:true,distance:160,color:"#9e7c3a",opacity:.1},
-    move:{speed:.5}
-  },
-  retina_detect:true
-});
-
-/* FADE IN */
-const sections=document.querySelectorAll("section");
-const observer=new IntersectionObserver(e=>{
-  e.forEach(i=>{if(i.isIntersecting)i.target.classList.add("visible")});
-},{threshold:.2});
-sections.forEach(s=>observer.observe(s));
+particlesJS("particles-js",{particles:{number:{value:32},color:{value:"#9e7c3a"},opacity:{value:.12},size:{value:3},line_linked:{enable:true,distance:160,color:"#9e7c3a",opacity:.1},move:{speed:.5}},retina_detect:true});
 
 function openForm(){
   document.getElementById("modal").classList.add("active");
@@ -257,11 +207,11 @@ function openForm(){
 
 async function submitForm(){
   const payload={
-    name:name.value,
-    email:email.value,
-    country:country.value,
-    phone:phone.value,
-    telegram:telegram.value
+    name:document.getElementById("name").value,
+    email:document.getElementById("email").value,
+    country:document.getElementById("country").value,
+    phone:document.getElementById("phone").value,
+    telegram:document.getElementById("telegram").value
   };
 
   await fetch("https://dreafrica.iamsomethingmore.workers.dev",{
