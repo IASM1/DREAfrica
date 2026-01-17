@@ -43,7 +43,7 @@ a{text-decoration:none;color:inherit}
   color:var(--text-muted);
 }
 
-/* CTA BUTTON */
+/* BUTTON */
 .cta{margin-top:34px}
 .btn{
   padding:14px 38px;
@@ -97,20 +97,14 @@ section p{
   padding:28px;
   border-radius:10px;
 }
-.card h3{
-  color:var(--gold-soft);
-  margin-bottom:10px;
-}
-.card p{
-  font-size:.95rem;
-  color:var(--text-muted);
-}
+.card h3{color:var(--gold-soft);margin-bottom:10px}
+.card p{font-size:.95rem;color:var(--text-muted)}
 
-/* MODAL FORM */
+/* MODAL */
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.7);
+  background:rgba(0,0,0,.75);
   display:none;
   align-items:center;
   justify-content:center;
@@ -125,9 +119,9 @@ section p{
   border-radius:12px;
   width:100%;
   max-width:420px;
+  text-align:center;
 }
 .form-box h3{
-  text-align:center;
   color:var(--gold-main);
   margin-bottom:20px;
 }
@@ -140,6 +134,14 @@ section p{
   background:#0b0e12;
   color:#fff;
 }
+.form-box .btn{width:100%}
+
+/* THANK YOU */
+.thankyou{
+  display:none;
+}
+.thankyou h3{color:var(--gold-main)}
+.thankyou p{color:var(--text-muted);margin:12px 0 24px}
 
 /* FOOTER */
 footer{
@@ -166,7 +168,6 @@ footer{
   <p>
     This is not a course. This is direct access, deal flow, and structured execution in the digital real estate market.
   </p>
-
   <div class="cta">
     <button class="btn" onclick="openForm()">Contact on Telegram</button>
   </div>
@@ -182,10 +183,10 @@ footer{
 <section>
   <h2>What You Get Access To</h2>
   <div class="grid">
-    <div class="card"><h3>Private Deal Flow</h3><p>Curated digital real estate opportunities not shared publicly.</p></div>
-    <div class="card"><h3>One-on-One Guidance</h3><p>Direct insight on acquisition, pricing, and exit strategy.</p></div>
-    <div class="card"><h3>50/50 Partnerships</h3><p>Capital + execution aligned through shared upside.</p></div>
-    <div class="card"><h3>Execution Frameworks</h3><p>How to think, analyze, and move like a digital asset investor.</p></div>
+    <div class="card"><h3>Private Deal Flow</h3><p>Curated digital real estate opportunities.</p></div>
+    <div class="card"><h3>One-on-One Guidance</h3><p>Direct insight on acquisition and exits.</p></div>
+    <div class="card"><h3>50/50 Partnerships</h3><p>Aligned upside, shared execution.</p></div>
+    <div class="card"><h3>Execution Frameworks</h3><p>Think and operate like an asset owner.</p></div>
   </div>
 </section>
 
@@ -201,14 +202,29 @@ footer{
 
 <!-- MODAL -->
 <div class="modal" id="modal">
-  <div class="form-box">
-    <h3>Telegram Application</h3>
-    <input id="name" placeholder="Full Name">
-    <input id="email" placeholder="Email">
-    <input id="country" placeholder="Country">
-    <input id="phone" placeholder="Phone Number">
-    <input id="telegram" placeholder="Telegram Username (optional)">
-    <button class="btn" onclick="sendTelegram()">Submit</button>
+  <div class="form-box" id="formBox">
+
+    <!-- FORM -->
+    <div id="formView">
+      <h3>Mentorship Application</h3>
+      <input id="name" placeholder="Full Name" required>
+      <input id="email" placeholder="Email" required>
+      <input id="country" placeholder="Country" required>
+      <input id="phone" placeholder="Phone Number" required>
+      <input id="telegram" placeholder="Telegram Username (optional)">
+      <button class="btn" onclick="submitForm()">Submit Application</button>
+    </div>
+
+    <!-- THANK YOU -->
+    <div class="thankyou" id="thankYouView">
+      <h3>Application Received</h3>
+      <p>
+        Thank you. Your application has been sent securely.<br>
+        We’ll contact you shortly on Telegram.
+      </p>
+      <a href="index.html" class="btn">Back to Home</a>
+    </div>
+
   </div>
 </div>
 
@@ -228,20 +244,34 @@ particlesJS("particles-js",{
   retina_detect:true
 });
 
+/* FADE IN */
+const sections=document.querySelectorAll("section");
+const observer=new IntersectionObserver(e=>{
+  e.forEach(i=>{if(i.isIntersecting)i.target.classList.add("visible")});
+},{threshold:.2});
+sections.forEach(s=>observer.observe(s));
+
 function openForm(){
   document.getElementById("modal").classList.add("active");
 }
 
-function sendTelegram(){
-  const msg = `
-DREAfrica Mentorship Application
-Name: ${name.value}
-Email: ${email.value}
-Country: ${country.value}
-Phone: ${phone.value}
-Telegram: ${telegram.value || "N/A"}
-`;
-  window.open(`https://t.me/an00_q?text=${encodeURIComponent(msg)}`);
+async function submitForm(){
+  const payload={
+    name:name.value,
+    email:email.value,
+    country:country.value,
+    phone:phone.value,
+    telegram:telegram.value
+  };
+
+  await fetch("YOUR_WORKER_URL_HERE",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify(payload)
+  });
+
+  document.getElementById("formView").style.display="none";
+  document.getElementById("thankYouView").style.display="block";
 }
 </script>
 
