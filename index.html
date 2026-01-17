@@ -290,19 +290,26 @@ freeForm.addEventListener("submit", async function(e){
   }
 
   try {
-    await fetch("https://twilight-salad-de91.iamsomethingmore.workers.dev", { // <-- replace with your Worker URL
+    await fetch("https://twilight-salad-de91.iamsomethingmore.workers.dev", { // <-- your Worker URL
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, name })
     });
 
-    // Redirect to Telegram after submission
-    window.location.href = "https://t.me/Dre_Africa"; // <-- replace with your channel
+    // Show a quick thank-you message instead of redirect
+    alert("Thanks! Your email has been submitted.");
+
+    // Reset the form so fields are cleared
+    freeForm.reset();
+
+    // Optional: redirect to Telegram after submission
+    // window.location.href = "https://t.me/Dre_Africa"; 
   } catch(err){
     alert("Oops! Something went wrong. Try again.");
     console.error(err);
   }
 });
 </script>
+
 </body>
 </html>
